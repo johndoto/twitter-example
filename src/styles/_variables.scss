@@ -1,0 +1,31 @@
+// Breakpoints:
+
+$grid-breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Fonts:
+
+$font-family-sans-serif: 'Inter', sans-serif;
+$font-size-body: 16px;
+$font-weight-body: 500;
+
+$font-size-heading-1: 54px;
+$font-size-heading-2: 36px;
+$font-size-heading-3: 24px;
+$font-size-heading-4: 18px;
+
+// Colors:
+
+$color-neutral-0: #fff;
+$color-neutral-1: #f8f9f9;
+
+$color-primary-0: #e7f3fa;
+$color-primary-1: #377ab5;
+
+$color-success: #02b201;
+$color-danger: #ff0000;

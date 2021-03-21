@@ -14,7 +14,13 @@ const config = {
   },
   mode: 'development',
   resolve: {
-    modules: [path.resolve('node_modules'), 'node_modules']
+    modules: [path.resolve('node_modules'), 'node_modules'],
+    alias: {
+      // Features: path.resolve(__dirname, '../src/features'),
+      Features: path.join(SRC_DIRECTORY, 'features'),
+      Patterns: path.join(SRC_DIRECTORY, 'patterns'),
+      mixins: path.join(SRC_DIRECTORY, 'styles/mixins')
+    }
   },
   performance: {
     hints: false

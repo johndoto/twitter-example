@@ -1,0 +1,12 @@
+@import '~mixins/index';
+
+.feed {
+  .tweet {
+    &.odd {
+      background-color: $color-neutral-0;
+    }
+    &.even {
+      background-color: $color-neutral-1;
+    }
+  }
+}

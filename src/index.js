@@ -2,11 +2,15 @@ import '@babel/polyfill'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { App } from './app'
+import WebFont from 'webfontloader'
 
+import { App } from './app'
 import './styles/index.scss'
 
-ReactDOM.render(
-  <App/>,
-  document.getElementById('App')
-)
+WebFont.load({
+  google: {
+    families: ['Inter:400,500,700']
+  }
+})
+
+ReactDOM.render(<App />, document.getElementById('App'))
