@@ -1,12 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Anchor } from './index'
 
 const Navigation = () => (
   <div>
     <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/about">About</Link></li>
-      <li><Link to="/sample">Sample</Link></li>
+      <li>
+        <Anchor to="/">Home</Anchor>
+      </li>
+      <li>
+        <Anchor to="/about">About</Anchor>
+      </li>
+      <li>
+        <Anchor to="/sample">Sample</Anchor>
+      </li>
     </ul>
   </div>
 )
