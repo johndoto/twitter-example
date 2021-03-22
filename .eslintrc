@@ -3,11 +3,7 @@
     "browser": true,
     "es6": true
   },
-  "extends": [
-    "plugin:prettier/recommended",
-    "plugin:react/recommended",
-    "standard"
-  ],
+  "extends": ["airbnb", "prettier/react", "plugin:prettier/recommended"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -25,11 +21,19 @@
       "version": "17.0.1"
     }
   },
-  "plugins": [
-    "prettier",
-    "react"
-  ],
+  "plugins": ["prettier", "react"],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-named-as-default": 0,
+    "import/no-unresolved": 0,
+    "import/prefer-default-export": 0,
+    "linebreak-style": [0],
+    "no-debugger": 1,
+    "no-multi-str": 0,
+    "no-shadow": 0,
+    "react/forbid-prop-types": 0,
+    "react/no-unused-state": 0
   }
 }

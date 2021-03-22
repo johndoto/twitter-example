@@ -3,7 +3,7 @@ import './index.scss'
 
 const Feed = () => (
   <>
-    <h3>Tweet Feed</h3>
+    <h3>Tweet Feed:</h3>
     <div className="feed">
       {/* array.map( () => tweet ) */}
       <div className="tweet"></div>

@@ -16,9 +16,10 @@ const config = {
   resolve: {
     modules: [path.resolve('node_modules'), 'node_modules'],
     alias: {
-      // Features: path.resolve(__dirname, '../src/features'),
-      Features: path.join(SRC_DIRECTORY, 'features'),
-      Patterns: path.join(SRC_DIRECTORY, 'patterns'),
+      AppConfigs: path.join(SRC_DIRECTORY, 'app-configs'),
+      Api: path.join(SRC_DIRECTORY, 'app/api'),
+      Features: path.join(SRC_DIRECTORY, 'app/features'),
+      Patterns: path.join(SRC_DIRECTORY, 'app/patterns'),
       mixins: path.join(SRC_DIRECTORY, 'styles/mixins')
     }
   },

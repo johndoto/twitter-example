@@ -1,0 +1,5 @@
+export { history } from './config.history'
+export { middlewareLogger } from './config.logger'
+export { rootReducer } from './config.reducers'
+export { middlewareSaga, rootSaga } from './config.sagas'
+export { store } from './config.store'
