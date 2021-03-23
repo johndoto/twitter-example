@@ -1,4 +1,3 @@
-import { array } from 'prop-types'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
@@ -14,8 +13,8 @@ const FeedResults = () => {
       {Array.isArray(tweets) && tweets.length > 0 ? (
         <>
           {tweets.map((tweet, i) => {
-            const tweetText = tweet.text.split('…')[0]
-            const tweetLink = tweet.text.split('…')[1]
+            const tweetLink = tweet?.entities?.urls?.[0]?.url
+            const tweetText = tweet?.text?.replace(tweetLink, '')
             const even = i % 2 === 0
             return (
               <div key={`tweet-${tweet.id}`} className={`tweet ${even ? 'even' : 'odd'}`}>
@@ -24,7 +23,7 @@ const FeedResults = () => {
                 </div>
                 <div className="tweet-content">
                   <div className="username">@{tweet.user.screen_name}</div>
-                  <div className="text">{tweetText}…</div>
+                  <div className="text">{tweetText}</div>
                   <a className="link" href={tweetLink} target="_blank" rel="noreferrer noopener">
                     {tweetLink}
                   </a>
@@ -42,7 +41,7 @@ const FeedResults = () => {
         </>
       ) : (
         <div className="no-results">
-          No Results <FontAwesomeIcon icon={faFrown} />
+          No results <FontAwesomeIcon icon={faFrown} />
         </div>
       )}
     </div>
