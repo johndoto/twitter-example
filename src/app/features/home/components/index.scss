@@ -1,0 +1,26 @@
+@import '~mixins/index';
+
+.home-layout {
+}
+
+.feed-search {
+  grid-area: feed-search;
+}
+.filter-hashtag {
+  grid-area: filter-hashtag;
+}
+.feed-results {
+  grid-area: feed-results;
+}
+
+@include breakpoint(md) {
+  .home-layout {
+    display: grid;
+    grid-template-columns: calc(70% - #{$block-padding}) 30%;
+    column-gap: $block-padding;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'feed-search filter-hashtag'
+      'feed-results .';
+  }
+}

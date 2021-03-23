@@ -19,10 +19,16 @@ $font-size-heading-2: 36px;
 $font-size-heading-3: 24px;
 $font-size-heading-4: 18px;
 
+$block-padding: 20px;
+$block-border-radius: 5px;
+
 // Colors:
 
 $color-neutral-0: #fff;
 $color-neutral-1: #f8f9f9;
+$color-neutral-2: #bcc2c5;
+// other, lighter colors going darker to #6 below
+$color-neutral-6: #222;
 
 $color-primary-0: #e7f3fa;
 $color-primary-1: #377ab5;

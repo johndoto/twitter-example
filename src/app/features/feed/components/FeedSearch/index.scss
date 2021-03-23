@@ -1,0 +1,29 @@
+@import '~mixins/index';
+
+.feed-search {
+  padding: $block-padding;
+
+  input[type='text'] {
+    border: 1px solid $color-neutral-2;
+    border-radius: $block-border-radius;
+    font-size: $font-size-heading-4;
+    padding: ($block-padding / 2) ($block-padding - 2);
+    height: 50px;
+    width: 100%;
+    transition: border-color 0.2s ease-out;
+
+    &:focus {
+      border-color: $color-primary-1;
+      outline: none;
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .feed-search {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: $font-size-heading-3;
+    margin-bottom: $font-size-heading-4;
+  }
+}

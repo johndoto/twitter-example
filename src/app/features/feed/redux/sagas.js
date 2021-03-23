@@ -5,11 +5,11 @@ import { search as searchApi, handleSuccess, handleError } from 'Api'
 import { GET_TWEETS } from './ducks'
 
 // workers
-export function* getTweetsSaga({ payload: { searchText } }) {
+export function* getTweetsSaga({ payload: { search, hashtag } }) {
   try {
-    const response = yield searchApi.getTweets(searchText)
-    const { success, data } = response.data
-    if (success) {
+    const response = yield searchApi.getTweets({ search, hashtag })
+    const { status, data } = response
+    if (status >= 200 && status <= 299) {
       yield handleSuccess(GET_TWEETS, data)
     } else {
       yield handleError(GET_TWEETS, {

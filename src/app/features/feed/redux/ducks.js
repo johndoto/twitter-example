@@ -8,12 +8,9 @@ export const GET_TWEETS_SUCCESS = `${GET_TWEETS}_SUCCESS`
 export const GET_TWEETS_ERROR = `${GET_TWEETS}_ERROR`
 
 export const initialState = {
-  meta: {
-    queryLoading: false
-  },
-  lists: {
-    tweets: []
-  }
+  searchLoading: false,
+  searchMetadata: {},
+  tweets: []
 }
 
 // Reducer
@@ -23,31 +20,22 @@ export default function reducer(state = initialState, action) {
   switch (type) {
     case GET_TWEETS:
       return update(state, {
-        meta: {
-          queryLoading: { $set: true }
-        }
+        searchLoading: { $set: true }
       })
 
     case GET_TWEETS_SUCCESS: {
-      const { tweets } = payload
+      const { statuses, search_metadata } = payload
       return update(state, {
-        meta: {
-          queryLoading: { $set: false }
-        },
-        lists: {
-          tweets: { $set: tweets }
-        }
+        searchLoading: { $set: false },
+        searchMetadata: { $set: search_metadata },
+        tweets: { $set: statuses }
       })
     }
 
     case GET_TWEETS_ERROR:
       return update(state, {
-        meta: {
-          queryLoading: { $set: false }
-        },
-        lists: {
-          tweets: { $set: [] }
-        }
+        searchLoading: { $set: false },
+        tweets: { $set: [] }
       })
 
     default:
@@ -56,7 +44,7 @@ export default function reducer(state = initialState, action) {
 }
 
 // Action Creators
-export const getTweets = (searchText) => ({
-  type: GET_TWEETS,
-  payload: { searchText }
-})
+// export const getTweets = ({ search, hashtag }) => ({
+//   type: GET_TWEETS,
+//   payload: { search, hashtag }
+// })

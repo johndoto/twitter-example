@@ -1,0 +1,28 @@
+@import '~mixins/index';
+
+.feed-results {
+  background-color: $color-neutral-0;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+  border-radius: $block-border-radius;
+
+  .no-results {
+    padding: $block-padding;
+  }
+
+  .tweet {
+    padding: $block-padding;
+
+    &.even {
+      background-color: $color-neutral-0;
+    }
+    &.odd {
+      background-color: $color-neutral-1;
+    }
+
+    .profile-photo {
+      display: inline-block;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+  }
+}

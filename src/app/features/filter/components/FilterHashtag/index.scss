@@ -1,0 +1,15 @@
+@import '~mixins/index';
+
+.filter-hashtag {
+  background-color: $color-neutral-0;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+  border-radius: $block-border-radius;
+  padding: $block-padding;
+  margin-bottom: $font-size-heading-3;
+}
+
+@include breakpoint(md) {
+  .filter-hashtag {
+    margin-top: ($font-size-heading-3 * 3) + $block-padding;
+  }
+}

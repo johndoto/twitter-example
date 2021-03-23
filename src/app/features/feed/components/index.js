@@ -1,14 +1,2 @@
-import React from 'react'
-import './index.scss'
-
-const Feed = () => (
-  <>
-    <h3>Tweet Feed:</h3>
-    <div className="feed">
-      {/* array.map( () => tweet ) */}
-      <div className="tweet"></div>
-    </div>
-  </>
-)
-
-export default Feed
+export { default as FeedResults } from './FeedResults'
+export { default as FeedSearch } from './FeedSearch'
