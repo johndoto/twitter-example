@@ -14,10 +14,10 @@ export const GET_NEXT_TWEETS_ERROR = `${GET_NEXT_TWEETS}_ERROR`
 export const initialState = {
   search: '',
   searchLoading: false,
-  nextQuery: '',
   nextLoading: false,
   searchMetadata: {},
   tweets: [],
+  hashtag: '',
   hashtags: []
 }
 
@@ -27,9 +27,10 @@ export default function reducer(state = initialState, action) {
 
   switch (type) {
     case GET_TWEETS: {
-      const { search } = payload
+      const { search, hashtag } = payload
       return update(state, {
         search: { $set: search },
+        hashtag: { $set: hashtag || '' },
         searchLoading: { $set: true }
       })
     }
@@ -53,9 +54,7 @@ export default function reducer(state = initialState, action) {
       })
 
     case GET_NEXT_TWEETS: {
-      const { nextQuery } = payload
       return update(state, {
-        nextQuery: { $set: nextQuery },
         nextLoading: { $set: true }
       })
     }

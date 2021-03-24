@@ -1,13 +1,12 @@
-import { takeEvery } from 'redux-saga/effects'
+import { takeEvery, all } from 'redux-saga/effects'
 import { search as searchApi, handleSuccess, handleError } from 'Api'
 
-// import * as DUCK from './ducks'
 import { GET_TWEETS, GET_NEXT_TWEETS } from './ducks'
 
 // workers
-export function* getTweetsSaga({ payload: { search, hashtag } }) {
+export function* getTweetsSaga({ payload: { search, hashtag, maxId, count } }) {
   try {
-    const response = yield searchApi.getTweets({ search, hashtag })
+    const response = yield searchApi.getTweets({ search, hashtag, maxId, count })
     const { status, data } = response
     if (status >= 200 && status <= 299) {
       yield handleSuccess(GET_TWEETS, data)
@@ -22,9 +21,9 @@ export function* getTweetsSaga({ payload: { search, hashtag } }) {
   }
 }
 
-export function* getNextTweetsSaga({ payload: { nextQuery } }) {
+export function* getNextTweetsSaga({ payload: { search, hashtag, maxId, count } }) {
   try {
-    const response = yield searchApi.getNextTweets({ nextQuery })
+    const response = yield searchApi.getTweets({ search, hashtag, maxId, count })
     const { status, data } = response
     if (status >= 200 && status <= 299) {
       yield handleSuccess(GET_NEXT_TWEETS, data)
