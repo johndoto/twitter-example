@@ -2,6 +2,8 @@ import React, { useState, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import debounce from 'lodash.debounce'
 
+import { InputText } from 'Patterns'
+
 import { GET_TWEETS } from '../../redux/ducks'
 import './index.scss'
 
@@ -9,7 +11,7 @@ const FeedSearch = () => {
   const dispatch = useDispatch()
   const [search, setSearch] = useState('')
 
-  const debounceTime = 750
+  const debounceTime = 750 // milliseconds
   const debouncedDispatch = useCallback(
     debounce(
       (nextValue) => dispatch({ type: GET_TWEETS, payload: { search: nextValue } }),
@@ -27,7 +29,7 @@ const FeedSearch = () => {
   return (
     <div className="feed-search">
       <h3>Tweet Feed</h3>
-      <input type="text" value={search} onChange={handleChange} />
+      <InputText value={search} onChange={handleChange} />
     </div>
   )
 }

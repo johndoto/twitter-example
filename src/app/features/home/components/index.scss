@@ -6,8 +6,8 @@
 .feed-search {
   grid-area: feed-search;
 }
-.filter-hashtag {
-  grid-area: filter-hashtag;
+.feed-hashtags {
+  grid-area: feed-hashtags;
 }
 .feed-results {
   grid-area: feed-results;
@@ -16,20 +16,26 @@
 @include breakpoint(md) {
   .home-layout {
     display: grid;
-    grid-template-columns: calc(70% - #{$block-padding}) 30%;
+    grid-template-columns: calc(67% - #{$block-padding}) 33%;
     column-gap: $block-padding;
     grid-template-rows: auto;
     grid-template-areas:
-      'feed-search filter-hashtag'
+      'feed-search feed-hashtags'
       'feed-results .';
   }
   .feed-search {
+    background-color: $color-neutral-1;
+    position: sticky;
+    top: 0;
+    height: fit-content;
     padding-left: 0;
     padding-right: 0;
     margin-top: $font-size-heading-3;
     margin-bottom: $font-size-heading-4;
   }
-  .filter-hashtag {
+  .feed-hashtags {
+    position: sticky;
+    top: 0;
     height: fit-content;
     margin-top: ($font-size-heading-3 * 3) + $block-padding;
   }

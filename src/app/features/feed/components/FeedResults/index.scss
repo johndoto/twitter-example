@@ -5,12 +5,17 @@
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
   border-radius: $block-border-radius;
 
-  .no-results {
+  .results-none {
     padding: $block-padding;
   }
 
   .tweet {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
     padding: $block-padding;
+    column-gap: $block-padding;
 
     &.even {
       background-color: $color-neutral-0;
@@ -21,8 +26,25 @@
 
     .profile-photo {
       display: inline-block;
-      overflow: hidden;
       border-radius: 50%;
+      overflow: hidden;
+      min-width: 48px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .tweet-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      row-gap: 15px;
+    }
+
+    .username {
+      font-weight: bold;
     }
   }
 }

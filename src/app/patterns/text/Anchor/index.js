@@ -1,13 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import './index.scss'
 
 const Anchor = ({ to, children, type }) => (
   <>
     {type === 'default' ? (
-      <Link to={to}>{children}</Link>
+      <Link className="anchor" to={to}>
+        {children}
+      </Link>
     ) : (
-      <a href={to} rel="noopener noreferrer" target="_blank">
+      <a className="anchor" href={to} rel="noopener noreferrer" target="_blank">
         {children}
       </a>
     )}

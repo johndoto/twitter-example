@@ -1,2 +1,3 @@
-export { default as Anchor } from './anchor'
-export { default as Navigation } from './navigation'
+export { Hashtag, HashtagContainer } from './hashtags'
+export { InputText } from './inputs'
+export { Anchor, Linkify, Loading, NoResults } from './text'

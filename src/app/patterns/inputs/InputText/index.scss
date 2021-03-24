@@ -1,0 +1,28 @@
+@import '~mixins/index';
+
+.input-text {
+  position: relative;
+
+  svg {
+    position: absolute;
+    font-size: 18px;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  input {
+    border: 1px solid $color-neutral-2;
+    border-radius: $block-border-radius;
+    font-size: $font-size-heading-4;
+    padding: ($block-padding / 2) ($block-padding - 2) ($block-padding / 2) 40px;
+    height: 50px;
+    width: 100%;
+    transition: border-color 0.2s ease-out;
+
+    &:focus {
+      border-color: $color-primary-1;
+      outline: none;
+    }
+  }
+}
