@@ -12,9 +12,7 @@ const FeedResults = () => {
   const lastId = tweets?.[tweets.length - 1]?.id_str
   let maxId = ''
   if (lastId) {
-    maxId = `${lastId.substring(0, lastId.length - 8)}${
-      parseInt(lastId.substring(lastId.length - 8), 10) - 1
-    }`
+    maxId = (BigInt(lastId) - BigInt('1')).toString()
   }
   return (
     <div className="feed-results">
@@ -56,7 +54,7 @@ const FeedResults = () => {
                   onClick={() =>
                     dispatch({
                       type: GET_NEXT_TWEETS,
-                      payload: { search, hashtag, maxId, count: 100 }
+                      payload: { search, hashtag, maxId, count: 5 }
                     })
                   }
                 />

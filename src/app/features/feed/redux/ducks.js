@@ -37,13 +37,17 @@ export default function reducer(state = initialState, action) {
 
     case GET_TWEETS_SUCCESS: {
       const { statuses, search_metadata } = payload
-      const hashtags = statuses.flatMap((tweet) =>
+
+      const sortedStatuses = statuses.sort((a, b) => b.id_str - a.id_str)
+
+      const hashtags = sortedStatuses.flatMap((tweet) =>
         tweet?.entities?.hashtags.map(({ text }) => text)
       )
+
       return update(state, {
         searchLoading: { $set: false },
         searchMetadata: { $set: search_metadata },
-        tweets: { $set: statuses },
+        tweets: { $set: sortedStatuses },
         hashtags: { $set: hashtags }
       })
     }
@@ -62,13 +66,16 @@ export default function reducer(state = initialState, action) {
     case GET_NEXT_TWEETS_SUCCESS: {
       const { statuses, search_metadata } = payload
 
+      const sortedStatuses = statuses.sort((a, b) => b.id_str - a.id_str)
+
       // combine existing with new:
       const { tweets } = state
-      const newTweets = tweets.concat(statuses)
+      const newTweets = tweets.concat(sortedStatuses)
 
       const hashtags = newTweets.flatMap((tweet) =>
         tweet?.entities?.hashtags.map(({ text }) => text)
       )
+
       return update(state, {
         nextLoading: { $set: false },
         searchMetadata: { $set: search_metadata },
