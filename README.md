@@ -6,7 +6,7 @@
 
 ### To run
 
-- Fork and clone the project:
+- Clone the project:
 
 ```
 git clone https://github.com/johndoto/twitter-test-app.git
