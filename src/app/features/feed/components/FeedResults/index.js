@@ -1,12 +1,15 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
-import { Loading, Linkify, NoResults, HashtagContainer, Hashtag } from 'Patterns'
+import { Loading, Linkify, NoResults, HashtagContainer, Hashtag, LoadMore } from 'Patterns'
 
+import { GET_NEXT_TWEETS } from '../../redux/ducks'
 import './index.scss'
 
 const FeedResults = () => {
-  const { searchLoading, tweets } = useSelector(({ feed }) => feed)
+  const dispatch = useDispatch()
+  const { searchLoading, searchMetadata, nextLoading, tweets } = useSelector(({ feed }) => feed)
+  const nextQuery = searchMetadata.next_results
   return (
     <div className="feed-results">
       {searchLoading ? (
@@ -40,6 +43,22 @@ const FeedResults = () => {
                   </div>
                 )
               })}
+              {nextLoading ? (
+                <Loading />
+              ) : (
+                <>
+                  {nextQuery && (
+                    <LoadMore
+                      onClick={() =>
+                        dispatch({
+                          type: GET_NEXT_TWEETS,
+                          payload: { nextQuery }
+                        })
+                      }
+                    />
+                  )}
+                </>
+              )}
             </>
           ) : (
             <NoResults text="No tweet results" />

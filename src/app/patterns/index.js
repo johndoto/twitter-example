@@ -1,3 +1,3 @@
 export { Hashtag, HashtagContainer } from './hashtags'
 export { InputText } from './inputs'
-export { Anchor, Linkify, Loading, NoResults } from './text'
+export { Anchor, Linkify, Loading, LoadMore, NoResults } from './text'

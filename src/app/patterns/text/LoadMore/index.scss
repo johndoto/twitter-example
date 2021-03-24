@@ -1,17 +1,17 @@
 @import '~mixins/index';
 
-.results-loading {
+.load-more {
+  background-color: $color-primary-0;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: $block-padding;
   width: 100%;
 
   h4 {
-    margin-bottom: 12px;
-  }
-
-  svg {
-    font-size: 25px;
+    color: $color-primary-1;
+    margin: 0;
   }
 }
