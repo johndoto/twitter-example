@@ -8,8 +8,12 @@ import './index.scss'
 
 const FeedResults = () => {
   const dispatch = useDispatch()
-  const { searchLoading, searchMetadata, nextLoading, tweets } = useSelector(({ feed }) => feed)
-  const nextQuery = searchMetadata.next_results
+  const { search, searchLoading, nextLoading, tweets, hashtag } = useSelector(({ feed }) => feed)
+  const lastId = tweets?.[tweets.length - 1]?.id_str
+  let maxId = ''
+  if (lastId) {
+    maxId = (BigInt(lastId) - BigInt('1')).toString()
+  }
   return (
     <div className="feed-results">
       {searchLoading ? (
@@ -46,18 +50,14 @@ const FeedResults = () => {
               {nextLoading ? (
                 <Loading />
               ) : (
-                <>
-                  {nextQuery && (
-                    <LoadMore
-                      onClick={() =>
-                        dispatch({
-                          type: GET_NEXT_TWEETS,
-                          payload: { nextQuery }
-                        })
-                      }
-                    />
-                  )}
-                </>
+                <LoadMore
+                  onClick={() =>
+                    dispatch({
+                      type: GET_NEXT_TWEETS,
+                      payload: { search, hashtag, maxId, count: 5 }
+                    })
+                  }
+                />
               )}
             </>
           ) : (
